@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJv+MzY4Onp9dXwDq6m4yI6O90yl6xg2Ff5zF8ZfwC5pQ2TYrWw/xp8wHdbj" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zara Therapy Clinic</title>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20%;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease, padding 0.3s ease;
+            animation: slideInFromTop 1s ease-out;
+        }
+        @media (max-width: 1400px) {
+            header { padding: 1rem 15%;
+                     }}
+
+        header h1 {
+            font-size:  1.4rem;
+            color: #000;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin: 0;
+            transform: translateX(-5%);
+        }
+
+        
+
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem; 
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1rem; 
+            font-weight: 500;
+            color: #000;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #28a745;
+        }
+
+        .contact-btn {
+            padding: 0.5rem 1.5rem; 
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            color: #28a745;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 1rem; 
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        @media (max-width: 1200px) {
+            header {
+                padding: 1rem 10%;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                padding: 1rem 5%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }}
+
+
+        .hero {
+    
+    position: relative;
+    background: url('images/index.jpeg') no-repeat center center/cover;
+    background-attachment: fixed; 
+    height: 70vh;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    color: white;
+    padding-left: 20%; 
+    z-index: 2; 
+}
+
+        @media (max-width: 1200px) {
+            .hero {
+                padding-left: 10%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 5%;
+                min-height: 50vh;
+                text-align: center;
+                justify-content: center;
+            }}
+
+
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .hero h2, .hero p, .hero .btn {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            margin: 0;
+            color: #ffffff; 
+            text-align: left;
+            line-height: 1.2;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #ffffff; 
+            animation: slideInFromLeft 1.2s ease-out;
+            text-align: left;
+        }
+
+        .hero div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero .btn {
+            background-color: #28a745; 
+            color: white;
+            padding: 0.85rem 1.7rem;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            text-align: center;
+            z-index: 2;
+            animation: zoomIn 1.5s ease-out;
+        }
+
+        .hero .btn:hover {
+            background-color: #28a745;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            text-align: left;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+      background-color: #162415;
+      color: white;
+      padding: 4% 0;
+      animation: slideUp 1s ease-out;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+        .content-section {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+        @media (max-width: 992px) {
+            .content-section {
+                flex-direction: column;
+                padding: 2rem 5%;
+            }
+
+            .text-content, .image-content {
+                width: 100%;
+            }
+
+            .image-content {
+                min-height: 300px;
+                margin-top: 2rem;
+            }
+        }
+
+        .text-content {
+            flex: 1;
+            padding: 40px;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        .text-content h3 {
+            color: #28a745;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .text-content h1 {
+            color: #222222;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .text-content p {
+            color: #555555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .text-content a {
+            color: #2a7d4f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .text-content a:hover {
+            text-decoration: underline;
+        }
+
+        .image-content {
+            flex: 1;
+            background-image: url('images/meditation.jpg'); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            min-height: 400px;
+            animation: slideInFromRight 1s ease-out;
+}
+
+        .container-wrapper {
+            padding: 4rem 0;
+        }
+
+        .container {
+            padding: 2rem 20%;
+        }
+
+
+.heading {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.heading h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.heading span {
+    color: #6cba57;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .cards {
+        flex-direction: column;
+    }
+    
+    .card {
+        max-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr;  
+        gap: 2rem;
+        padding: 0 1rem;  
+    }
+
+    .card {
+        max-width: 100%;
+        margin: 0 auto;  
+        width: 100%;
+    }
+
+    .card img {
+        width: 100%;
+        height: 300px;  
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;  
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);  
+    }
+}
+
+
+@media (min-width: 992px) {
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .card {
+        flex: 1;
+        max-width: 32%;
+    }
+
+    .card img {
+        height: 250px;  
+    }
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: #fff;
+    border-radius: 8px;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    animation: hoverEffect 0.3s ease-in-out infinite alternate;
+}
+.card img {
+    width: 100%;
+    height: 200px;  
+    object-fit: cover;  
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #28a745;
+    transition: color 0.3s ease;
+}
+
+.card-content h3:hover {
+    color: #28a745;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+
+.dual-section {
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            display: flex;
+            gap: 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .dual-section {
+                flex-direction: column;
+                padding: 2rem 5%;
+            }
+
+            .form-section, .info-section {
+                width: 100%;
+            }
+        }
+
+.form-section, .info-section {
+    flex: 1;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    background-color: #fff;
+}
+
+.info-section {
+    background-color: #f5f5f5; 
+}
+
+.form-section h3, .info-section h3 {
+    font-size: 1.8rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.form-section p, .info-section p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+
+
+.hours {
+      margin-top: 1.5rem;
+  }
+
+  .hours h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+  }
+
+  .hours span {
+      font-size: 1rem;
+      color: #000;
+  }
+
+  .hours .row {
+      margin-bottom: 1rem;
+  }
+
+  .hours .col-12 {
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+  .hours .d-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.2rem 0;
+  }
+
+  .hours .day {
+      width: 120px; 
+      font-weight: bold;
+  }
+
+  .hours .hours-time {
+      flex-grow: 1; 
+      text-align: left;
+      font-weight: normal;
+  }
+
+.info-section .map iframe {
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 576px) {
+            .form-group input,
+            .form-group textarea {
+                padding: 0.5rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+.btn {
+    background-color: #28a745;
+            color: #fff;
+            padding: 0.85rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            text-decoration: none; 
+            display: inline-block;
+}
+
+.btn:hover {
+    background-color: #28a745;
+}
+
+.info-section .map iframe {
+    border-radius: 8px;
+}
+.map iframe {
+            width: 100%;
+            height: 300px;
+        }
+
+        
+        section {
+            padding: 4rem 2rem;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            section p {
+                font-size: 1rem;
+            }
+        }
+
+        html {
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes hoverEffect {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5px);
+    }
+}
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <header>
+        <h1>ZARA THERAPY CLINIC</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="testiminials.html">Testimonials</a></li>
+                <li><a href="#contact" class="contact-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <div>
+            <h2>Transform Your <br> Wellbeing</h2>
+            <p>Experience Healing Therapies with us</p>
+            <a href="#services"  style="z-index: 10;" class="btn">View Services</a>
+        </div>
+    </section>
+
+    <div class="content-section", id="about">
+        <div class="text-content">
+            <h3>Discover Healing</h3>
+            <h1>Your path to wellness starts here</h1>
+            <p>
+                At Zara Therapy Clinic, we believe in the power of holistic healing. Our team of experienced therapists is 
+                dedicated to providing personalized care tailored to your needs. We offer a range of therapies designed to 
+                promote physical, emotional, and mental well-being.
+            </p>
+            <p>
+                Located in the heart of Doha, we create a serene environment where you can relax and rejuvenate. Join us on 
+                your journey to wellness and experience the transformative effects of our therapies.
+            </p>
+            <a href="#contact">Get in touch</a>
+        </div>
+        <div class="image-content"></div>
+    </div>
+
+    <section class="container-wrapper"  id="services">
+        <div class="container">
+            <div class="heading">
+                <span>HOLISTIC HEALING</span>
+                <h1>Experience transformative therapies</h1>
+            </div>
+            <div class="cards"><a href="messageterapy.html">
+                <div class="card">
+                    <img src="images/massage.jpg" alt="Massage therapy">
+                    <div class="card-content">
+                        <h3>Massage therapy</h3>
+                        <p>Experience relaxation and relief through expert massage techniques.</p></a>
+                    </div>
+                </div>
+                <div class="card"><a href="Acupuncture.html">
+                    <img src="images/ac.jpeg" alt="Acupuncture">
+                    <div class="card-content">
+                        <h3>Acupuncture</h3>
+                        <p>Restore balance and alleviate pain with traditional acupuncture.</p></a>
+                    </div>
+                </div>
+                <div class="card"><a href="Cupping therapy.html">
+                    <img src="images/cupping.jpg" alt="Cupping therapy">
+                    <div class="card-content">
+                        <h3>Cupping therapy</h3>
+                        <p>Enhance recovery and relaxation with our cupping sessions.</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="dual-section">
+        
+        <div class="form-section">
+            <h3>Book Your Session</h3>
+            <p>Fill out the form below to schedule your appointment.</p>
+            <form action="#" method="post" class="booking-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your needs..."></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="data-allow" name="data-allow" required>
+                    <label for="data-allow">
+                        I allow this website to store my submission so they can respond to my inquiry. *
+                    </label>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    
+       
+        <div class="info-section", id="contact">
+            <h3>Our Location</h3>
+            <p>Zara Therapy Clinic, Doha</p>
+            <p><strong>Address:</strong> 123 Wellness Lane, Doha, Qatar</p>
+            <p><strong>Phone:</strong> +974 1234 5678</p>
+            <p><strong>Email:</strong> mailto:info@zaratherapyclinic.qa</p>
+            <div class="map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.80109460085!2d51.5221713153178!3d25.276987534703503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c50b6b68edb7%3A0x7e2b40bcb1cf3c9e!2sDoha%2C%20Qatar!5e0!3m2!1sen!2sqa!4v1615798808201!5m2!1sen!2sqa" 
+                    width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="hours">
+                <h3>Hours</h3>
+                <div class="row">
+                    <div class="col-12 d-flex">
+                        <span class="day"><strong>Sunday:</strong></span>
+                        <span class="hours-time">         9:00am – 12:00pm</span>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <span class="day"><strong>Monday:</strong></span>
+                        <span class="hours-time">9:00am – 10:00pm</span>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <span class="day"><strong>Tuesday:</strong></span>
+                        <span class="hours-time">9:00am – 10:00pm</span>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <span class="day"><strong>Wednesday:</strong></span>
+                        <span class="hours-time">                      9:00am – 10:00pm</span>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <span class="day"><strong>Thursday:</strong></span>
+                        <span class="hours-time">                            9:00am – 10:00pm</span>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <span class="day"><strong>Friday:</strong></span>
+                        <span class="hours-time">           2:00pm – 10:00pm</span>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <span class="day"><strong>Saturday:</strong></span>
+                        <span class="hours-time">          9:00am – 6:00pm</span>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 footer-links">
+              <a href="schedule.html">Schedule Appointment</a>
+              <a href="complete intake .html">Complete Intake</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+        function handleBackgroundAttachment() {
+            const hero = document.querySelector('.hero');
+            if (window.innerWidth <= 768) {
+                hero.style.backgroundAttachment = 'scroll';
+            } else {
+                hero.style.backgroundAttachment = 'fixed';
+            }
+        }
+
+        window.addEventListener('load', handleBackgroundAttachment);
+        window.addEventListener('resize', handleBackgroundAttachment);
+    </script>
+   <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.error('Target section not found:', this.getAttribute('href'));
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Experiences</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20%;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease, padding 0.3s ease;
+            opacity: 0;
+            transform: translateY(-50px);  
+            animation: headerAnimation 0.8s forwards;
+        }
+
+        @keyframes headerAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);  
+            }
+        }
+
+        @media (max-width: 1400px) {
+            header { padding: 1rem 15%; }
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            color: #000;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin: 0;
+            transform: translateX(-5%);
+        }
+
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem; 
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1rem; 
+            font-weight: 500;
+            color: #000;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #28a745;
+        }
+
+        .contact-btn {
+            padding: 0.5rem 1.5rem; 
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            color: #28a745;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 1rem; 
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        @media (max-width: 1200px) {
+            header {
+                padding: 1rem 10%;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                padding: 1rem 5%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+        footer {
+            background-color: #162415;
+            color: white;
+            padding: 4% 0;
+            opacity: 0;
+            animation: fadeInFooter 1s forwards;  
+        }
+
+        @keyframes fadeInFooter {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+    .hero-section {
+      background: url('images/gallery/room.jpeg');
+      background-size: cover;
+      background-position: center center;
+      color: white;
+      text-align: left;
+      padding: 150px 20px;
+      margin-top: -12px;
+      animation: fadeInUp 1.5s;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-section .container {
+      padding-left: 7.5%; 
+    }
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 750;
+  margin: 0;
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  font-weight: 750;
+  margin-top: 10px;
+  text-transform: lowercase;
+}
+
+.hero-section p {
+  font-size: 19PX;
+  margin-top: 20px;
+  max-width: 600px;
+  font-weight: 750;
+}
+
+    .content-section {
+      padding: 40px 20px;
+      margin: 0 auto;
+      max-width: 80%;
+      animation: zoomIn 1.5s;
+    }
+
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+  
+    .gallery-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover; 
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s;
+      animation: fadeIn 2s;
+    }
+
+    .gallery-image:hover {
+      transform: scale(1.05);
+    }
+
+    .modal-body img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      background-color: transparent; 
+      animation: zoomIn 0.5s;
+    }
+
+    .modal-footer {
+      justify-content: space-between;
+    }
+
+    .icon-btn {
+      font-size: 1.5rem;
+      color: #28a745;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .icon-btn:hover {
+      transform: scale(1.2);
+    }
+
+    .sub-title {
+      color: #00c853; 
+      font-size: 15px; 
+      font-weight: 500; 
+      margin-top: 10px; 
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ZARA THERAPY CLINIC</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="Gallery.html">Gallery</a></li>
+      <li><a href="testiminials.html">Testimonials</a></li>
+      <li><a href="index.html#contact" class="contact-btn">Contact</a></li>
+  </ul>
+  </nav>
+</header>
+
+<div class="hero-section">
+  <div class="container">
+    <h1>Transformative</h1>
+    <h2>Therapies</h2>
+    <p>Experience healing and wellness like never before</p>
+  </div>
+</div>
+
+<div id="gallery" class="content-section">
+  <div class="container">
+    <h2 class="sub-title">THERAPY SESSIONS</h2>
+    <h1>Experience healing and renewal</h1>
+    <div class="row g-3 mt-3">
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="images/gallery/gal!.jpeg" class="gallery-image" alt="Gallery Image 1" data-bs-toggle="modal" data-bs-target="index.htmlindex.html#galleryModal" data-index="0">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="images/gallery/massage-therapy-1612308_1280.jpg" class="gallery-image" alt="Gallery Image 2" data-bs-toggle="modal" data-bs-target="index.htmlindex.html#galleryModal" data-index="1">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="images/gallery/massage-therapy-1584711_1280.jpg" class="gallery-image" alt="Gallery Image 3" data-bs-toggle="modal" data-bs-target="index.htmlindex.html#galleryModal" data-index="2">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="images/gallery/essential-oils-3931427_960_720.jpg" class="gallery-image" alt="Gallery Image 4" data-bs-toggle="modal" data-bs-target="index.htmlindex.html#galleryModal" data-index="3">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <img src="" alt="Gallery Zoomed Image" id="modalImage">
+      </div>
+      <div class="modal-footer border-0">
+        <button class="icon-btn" id="prevImage"><i class="bi bi-arrow-left-circle"></i></button>
+        <button class="icon-btn" id="nextImage"><i class="bi bi-arrow-right-circle"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".gallery-image");
+    const modalImage = document.getElementById("modalImage");
+    const prevButton = document.getElementById("prevImage");
+    const nextButton = document.getElementById("nextImage");
+    let currentIndex = 0;
+
+    images.forEach((image, index) => {
+      image.addEventListener("click", () => {
+        modalImage.src = image.src;
+        currentIndex = index;
+      });
+    });
+
+    prevButton.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImage.src = images[currentIndex].src;
+    });
+
+    nextButton.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImage.src = images[currentIndex].src;
+    });
+  });
+</script>
+
+<footer class="text-center">
+  <div class="container">
+      <div class="row">
+          <div class="col-12 footer-links">
+              <a href="schedule.html">Schedule Appointment</a>
+              <a href="complete intake .html">Complete Intake</a>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
